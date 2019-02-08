@@ -1,3 +1,4 @@
 guia git
 git-repo
+git add .
 git commit -m "mensaje"
