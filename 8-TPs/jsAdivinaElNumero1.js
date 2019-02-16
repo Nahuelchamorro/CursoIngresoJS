@@ -31,22 +31,26 @@ function verificar()
 	//alert(NumeroIngresado)
 
 	if (NumeroIngresado==numeroSecreto)
-	{  
+	{ 
+
 	mensaje="sos un genio";
 	}
 	else
 	{  
 
-		if(NumeroIngresado<numeroSecreto){
+		if(NumeroIngresado<numeroSecreto)
+			{
 			  mensaje ="falta";
 		    }
 
-		    else{ 
+		    else
+		    { 
 		     mensaje ="te pasaste";  
 	
-		    }
+		 }
 
 	}
+
 
    alert(mensaje);
 }
