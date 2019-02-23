@@ -9,14 +9,21 @@ function mostrar()
 	minimo=999;
 	
 	var respuesta='si';
+	var bandera;
+	bandera="es la primera";
 
 	while(respuesta=="si")
 	{
 		contador=contador+1;
 		numero=prompt("ingrese numero :");
 		numero=parseInt(numero);
-		
-		if(numero>maximo)
+		if(bandera=="es la primera")
+		{
+			maximo=numero;
+			minimo=numero;
+			bandera="dasdas";
+		} else
+          {if(numero>maximo)
 		{
 			maximo=numero;
 		}
@@ -24,6 +31,9 @@ function mostrar()
 		{
 			minimo=numero;	
 		}
+
+          }
+		
 
 		respuesta=prompt("=>si,para continuar");
 	}
