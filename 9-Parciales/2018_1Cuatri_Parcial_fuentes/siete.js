@@ -1,51 +1,65 @@
+
 function mostrar()
 {
-	var contador;
-    var numero;
+	var velocidades;
+	var combustible;
+	var vehiculo;
+    var contador;
+    var acumulador;
     var minimo;
-    var sexo;
-    var contadormasculino;
-    var sexominimo;
+    var combustibleminimo;
+    var mensaje;
+    var contadorliquido;
+    var maximo;
+    var contadorsolido;
 
-    minimo=999;
-    contadormasculino=0;
-	contador=0;
-	acumulador=0;
+    contador=0;
+    acumulador=0;
+    contadorliquido=0;
+    contadorsolido=0;
+    minimo=250;
+    maximo=0;
+   
+    while(contador<5)
+    {
+    	velocidades=prompt("ingrese una velocidad entre 0 y 250");
+    	velocidades=parseInt(velocidades);
+    	contador=contador+1;
 
-      while(contador<5)
-{   
-	    contador=contador+1;
-		numero=prompt("ingrese nota");
-		sexo=prompt("ingrese sexo f o m ");
-		numero=parseInt(numero);
-		acumulador=acumulador+ numero;
-		   
-		if(numero>10)
-		{
-			alert("el numero excede el limite");
+    	while(velocidades>250 || velocidades==0)
+    	{
+          velocidades=prompt("error, ingrese una velocidad entre 0 y 250");
+          velocidades=parseInt(velocidades);
+    	}
+    	acumulador=acumulador+velocidades;
 
-		}
-		else
-		{
-         if(numero<minimo)
-         {
-			minimo=numero;
-			sexominimo=sexo;	
-	     }
-	 else 
-	{
-	 	if(numero>=6 && sexo=="m")
-	 	{
-	 		contadormasculino=contadormasculino+1
+    	combustible=prompt("ingrese combustible liquido o solido");
+    	while(!(combustible=="liquido"|| combustible=="solido"))
+    	{
+          combustible=prompt("error, ingrese un combustible liquido o solido");
+    	}
 
-	 	}
-	 } 
+      if(velocidades<minimo)
+      {
+       minimo=velocidades;
+       combustibleminimo=combustible;
+      }
+     else
+     	if(velocidades>100 && combustible=="liquido")
+     	{
+         contadorliquido=contadorliquido+1 
+     	}
+     	else
+     		if(velocidades>maximo && combustible=="solido")
+     		{
+     		  maximo=velocidades;
+              contadorsolido=maximo;
+     		}
+    }
+    
+    document.write("el promedio de velocidades es: "+ acumulador/5+"<br>");
+    document.write("la velocidad mas baja es de: "+minimo+" y su tipo de combustible es: "+combustible+"<br>");
+    document.write("la cantidad de combustibles liquidos que superan los 100km/h son: "+contadorliquido+"<br>");
+    document.write("la velocidad mas alta de los combustibles solidos es: "+contadorsolido+"<br>");
 
-        }	
-
-}
-promedio=acumulador/5;
-alert("el promedio es de: "+promedio);
-alert("la cantidad de varones con nota mayor a 6 son:"+contadormasculino);
-alert("la nota mas baja es: "+minimo+"y su sexo es: "+sexominimo);
 }
